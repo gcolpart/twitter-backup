@@ -1,0 +1,17 @@
+Script to backup your friends timeline
+
+Install how-to:
+
+1. Download twitter-backup.pl in ~/path/
+2. cd ~/path/
+3. mkdir backup
+4. touch backup/lastid
+5. chmod +x twitter-backup.pl
+6. Launch ./twitter-backup.pl
+7. Ignore warnings at first launch
+8. Edit your crontab. For example:
+   @hourly ~/path/backup-tweets.pl >> ~/.backup-tweets.log
+9. logrotate backup/twitter-current. For example:
+   @monthly mv ~/path/backup/twitter-current ~/path/backup/twitter-$(date "+%Y-%m-%d")
+10. logrotate output (~/.backup-tweets.log in example above)
+11. Tweet "Hey, I use now http://github.com/gcolpart/twitter-backup for backuping my Twitter."
