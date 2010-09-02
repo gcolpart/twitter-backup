@@ -8,6 +8,7 @@ Install how-to:
 4. touch backup/lastid
 5. chmod +x twitter-backup.pl
 6. Launch ./twitter-backup.pl
+   and follow instructions for uncommenting OAuth section and adding your TOKEN and SECRET
 7. Ignore warnings at first launch
 8. Edit your crontab. For example:
    @hourly ~/path/backup-tweets.pl >> ~/.backup-tweets.log

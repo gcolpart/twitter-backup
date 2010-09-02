@@ -8,12 +8,23 @@ use Net::Twitter;
 
 # Initialize Twitter connections
 my $nt = Net::Twitter->new(
-	traits   => [qw/API::REST/],
-	username => 'MYUSER',
-	password => 'MYPASS'
+    traits          => ['API::REST', 'OAuth'],
+    consumer_key    => "scHFkZoI9hkUzs980rTuOA",
+    consumer_secret => "XzvzzVdzomTk9R2ZTkyilcl2EW7ZGN2hNTgNcB4bs",
 );
 if( not defined($nt) or $@ ) {
 	die "Could not create Twitter connection! " . $@ . "\n";
+}
+
+# Uncomment when you have your OAuth infos!
+#$nt->access_token('TOKEN');
+#$nt->access_token_secret('SECRET');
+
+unless ( $nt->authorized ) {
+print "Authorize this app at ", $nt->get_authorization_url, " and enter the PIN\n";
+my $pin = <STDIN>; chomp $pin;
+my($access_token, $access_token_secret, $user_id, $screen_name) = $nt->request_access_token(verifier => $pin);
+print "TOKEN = $access_token - SECRET = $access_token_secret \n";
 }
 
 # Read last id
