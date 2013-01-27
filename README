@@ -15,4 +15,4 @@ Install how-to:
 9. logrotate backup/twitter-current. For example:
    @monthly mv ~/path/backup/twitter-current ~/path/backup/twitter-$(date "+%Y-%m-%d")
 10. logrotate output (~/.backup-tweets.log in example above)
-11. Tweet "Hey, I use now http://github.com/gcolpart/twitter-backup for backuping my Twitter."
+11. Tweet "Hey, I use http://github.com/gcolpart/twitter-backup for backing up my tweets."
