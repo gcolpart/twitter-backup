@@ -8,7 +8,7 @@ use Net::Twitter;
 
 # Initialize Twitter connections
 my $nt = Net::Twitter->new(
-    traits          => ['API::REST', 'OAuth'],
+    traits          => [qw/API::RESTv1_1/],
     consumer_key    => "scHFkZoI9hkUzs980rTuOA",
     consumer_secret => "XzvzzVdzomTk9R2ZTkyilcl2EW7ZGN2hNTgNcB4bs",
 );
@@ -46,7 +46,7 @@ my $countimported = 0;
 
 eval {
 
-	my $statuses = $nt->friends_timeline({ since_id => $high_water, count => $returns });
+	my $statuses = $nt->home_timeline({ since_id => $high_water, count => $returns });
 
         #for my $status ( @$statuses ) {
         for my $status ( sort { $a->{id} <=> $b->{id}; } @$statuses ) {
