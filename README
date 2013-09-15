@@ -5,13 +5,13 @@ Install how-to:
 1. Download twitter-backup.pl in ~/path/
 2. cd ~/path/
 3. mkdir backup
-4. touch backup/lastid
+4. echo 1 > backup/lastid
 5. chmod +x twitter-backup.pl
 6. Launch ./twitter-backup.pl
    and follow instructions for uncommenting OAuth section and adding your TOKEN and SECRET
 7. Ignore warnings at first launch
 8. Edit your crontab. For example:
-   @hourly ~/path/backup-tweets.pl >> ~/.backup-tweets.log
+   @hourly perl ~/path/backup-tweets.pl >> ~/.backup-tweets.log
 9. logrotate backup/twitter-current. For example:
    @monthly mv ~/path/backup/twitter-current ~/path/backup/twitter-$(date "+%Y-%m-%d")
 10. logrotate output (~/.backup-tweets.log in example above)
